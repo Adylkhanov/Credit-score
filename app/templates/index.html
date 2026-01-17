@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Заявка на кредит</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <header class="card__header">
+          <h1>Онлайн-заявка на кредит</h1>
+          <p>Заполните анкету, и мы сообщим решение за несколько секунд.</p>
+        </header>
+
+        <form id="credit-form" class="form">
+          <div class="form__row">
+            <label>
+              Имя
+              <input name="first_name" type="text" placeholder="Иван" required />
+            </label>
+            <label>
+              Фамилия
+              <input name="last_name" type="text" placeholder="Иванов" required />
+            </label>
+          </div>
+
+          <div class="form__row">
+            <label>
+              Возраст
+              <input name="age" type="number" min="18" max="100" required />
+            </label>
+            <label>
+              Гендер
+              <select name="gender" required>
+                <option value="">Выберите</option>
+                <option value="male">Мужчина</option>
+                <option value="female">Женщина</option>
+                <option value="other">Другое</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form__row">
+            <label>
+              Зарплата (₽)
+              <input name="salary" type="number" min="0" step="1000" required />
+            </label>
+            <label>
+              Задолженности (₽)
+              <input name="debts" type="number" min="0" step="1000" value="0" required />
+            </label>
+          </div>
+
+          <div class="form__row form__row--inline">
+            <label class="checkbox">
+              <input name="has_children" type="checkbox" />
+              Есть ли дети
+            </label>
+            <label class="checkbox">
+              <input name="has_car" type="checkbox" />
+              Есть ли машина
+            </label>
+          </div>
+
+          <div id="children-count-wrapper" class="form__row is-hidden">
+            <label>
+              Сколько детей
+              <input name="children_count" type="number" min="0" max="20" value="0" />
+            </label>
+          </div>
+
+          <button type="submit" class="button">Отправить заявку</button>
+        </form>
+
+        <div id="result" class="result" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
